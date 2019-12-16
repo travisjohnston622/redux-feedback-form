@@ -7,7 +7,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import registerServiceWorker from './registerServiceWorker';
 
-const feedbackReducer = (state= [], action) => {
+const formReducer = (state = [], action) => {
     if (action.type === 'GET_FEEDBACK') {
         return [
             action.payload
@@ -16,24 +16,24 @@ const feedbackReducer = (state= [], action) => {
     return state;
 }
 
-const defaultFeedback = {
+const defaultForm = {
     feeling: '',
     understanding: '',
     support: '',
-    comments:''
+    comments: ''
 }
 
-const feedbackFormReducer = (state = defaultFeedback, action) => {
+const feedbackReducer = (state = defaultForm, action) => {
     if (action.type === 'ADD_FEELING') {
         return {
             ...state,
             ...action.payload
-    }
-}else if (action.type === 'ADD_UNDERSTANDING') {
-    return {
-        ...state,
-        ...action.payload
-    }
+        }
+    } else if (action.type === 'ADD_UNDERSTANDING') {
+        return {
+            ...state,
+            ...action.payload
+        }
     } else if (action.type === 'ADD_SUPPORT') {
         return {
             ...state,
@@ -44,19 +44,19 @@ const feedbackFormReducer = (state = defaultFeedback, action) => {
             ...state,
             ...action.payload
         }
+        return state;
     }
-    return state;
-}
+   
 
-    const storeInstance = 
-    createStore(
-        combineReducers({
-            feedbackFormReducer,
-            feedbackReducer
-        }),
-        applyMiddleware(logger)
-    )
+    const storeInstance =
+        createStore(
+            combineReducers({
+                formReducer,
+                feedbackReducer
+            }),
+            applyMiddleware(logger)
+        )
 
 
-ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, document.getElementById('root'));
-registerServiceWorker()
+    ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, document.getElementById('root'));
+    registerServiceWorker()

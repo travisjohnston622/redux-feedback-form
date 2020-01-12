@@ -21,19 +21,24 @@ class Admin extends Component {
             })
         })
         .catch((err) => {
-            console.warn(error);
+            console.warn(err);
         })
     }
     render() {
         const formArray = this.props.store.map((item, index) => {
             return (
-                <h1>Please fill out your feedback form!</h1>
-                <p>{item.feeling}</p>
-                <p>{item.understanding}</p>
-                <p>{item.support}</p>
-                <p>{item.comments}</p>
+                <div>
+                    <h1>Please fill out your feedback form!</h1>
+                    <p>{item.feeling}</p>
+                    <p>{item.understanding}</p>
+                    <p>{item.support}</p>
+                    <p>{item.comments}</p>
+                </div>
             )
         });
+        return (
+        <div>{formArray}</div>
+        )
     }
 }
 export default connect(mapStoreToProps)(Admin);

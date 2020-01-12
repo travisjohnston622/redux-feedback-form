@@ -13,6 +13,7 @@ class Understanding extends Component {
     }
 
     submitUnderstanding = (event) => {
+        event.preventDefault();
         if (!this.state.understanding) {
             alert("Must enter a number!")
         } else {
@@ -28,7 +29,7 @@ class Understanding extends Component {
         return (
             <div>
                 <h1>How solid is your understanding?</h1>
-                <form onSubmit={this.submitFeeling}>
+                <form onSubmit={this.submitUnderstanding}>
                     <input
                         type="number"
                         placeholder="How well do you understand?"

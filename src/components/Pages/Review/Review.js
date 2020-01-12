@@ -24,7 +24,7 @@ class Review extends Component {
     }
 
     submitReview = () => {
-        this.postForm(this.props.store.formReducer);
+        this.postForm(this.props.store.feedbackReducer);
     }
 
     postForm(newForm) {
@@ -45,11 +45,11 @@ class Review extends Component {
         return (
             <div>
                 <h1>Please Review Your Feedback!</h1>
-                <p>How your feeling: {this.props.store.formReducer.feeling}</p>
-                <p>How your understanding the material: {this.props.store.formReducer.understanding}</p>
-                <p>How supported you feel: {this.props.store.formReducer.support}</p>
-                <p>Your comments: {this.props.store.formReducer.comments}</p>
-                <button onclick={this.submitReview}>Submit Feedback</button>
+                <p>How your feeling: {this.props.store.feedbackReducer.feeling}</p>
+                <p>How your understanding the material: {this.props.store.feedbackReducer.understanding}</p>
+                <p>How supported you feel: {this.props.store.feedbackReducer.support}</p>
+                <p>Your comments: {this.props.store.feedbackReducer.comments}</p>
+                <button onClick={this.submitReview}>Submit Feedback</button>
             </div>
         );
     }

@@ -8,6 +8,8 @@ import Feeling from '../Pages/Feeling/Feeling';
 import Understanding from '../Pages/Understanding/Understanding';
 import Support from '../Pages/Support/Support';
 import Comments from '../Pages/Comments/Comments';
+import Admin from '../Pages/Admin/Admin';
+import Review from '../Pages/Review/Review';
 class App extends Component {
   render() {
     return (
@@ -18,7 +20,7 @@ class App extends Component {
             <h4><i>Don't forget it!</i></h4>
           </header>
           <br />
-          <Route path="/feeling" component={Feeling} />
+          <Route path="/" exact component={Feeling} />
           <Route path="/understanding" component={Understanding} />
           <Route path="/support" component={Support} />
           <Route path="/comments" component={Comments} />

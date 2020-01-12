@@ -13,6 +13,7 @@ class Feeling extends Component {
     }
     
     submitFeeling = (event) => {
+        event.preventDefault();
         if (!this.state.feeling) {
             alert( "Must enter a number!" )
         }else {

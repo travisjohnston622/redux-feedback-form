@@ -13,6 +13,7 @@ class Support extends Component {
     }
 
     submitSupport = (event) => {
+        event.preventDefault();
         if (!this.state.support) {
             alert("Must enter a number!")
         } else {

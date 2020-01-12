@@ -27,7 +27,7 @@ class Comments extends Component {
                 <h1>Do you have any comments?</h1>
                 <form onSubmit={this.submitComments}>
                     <input
-                        type="number"
+                        type="text"
                         placeholder="Have any comments?"
                         value={this.state.comments}
                         onChange={(event) => this.changeField(event, 'comments')}

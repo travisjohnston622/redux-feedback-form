@@ -17,46 +17,44 @@ const formReducer = (state = [], action) => {
 }
 
 const defaultForm = {
-    feeling: '',
-    understanding: '',
-    support: '',
-    comments: ''
+    feeling: 0,
+    understanding: 0,
+    support: 0,
+    comments: '',
 }
 
 const feedbackReducer = (state = defaultForm, action) => {
     if (action.type === 'ADD_FEELING') {
         return {
             ...state,
-            ...action.payload
+            feeling: parseInt(action.payload)
         }
     } else if (action.type === 'ADD_UNDERSTANDING') {
         return {
             ...state,
-            ...action.payload
+            understanding: parseInt(action.payload)
         }
     } else if (action.type === 'ADD_SUPPORT') {
         return {
             ...state,
-            ...action.payload
+            support: parseInt(action.payload)
         }
     } else if (action.type === 'ADD_COMMENTS') {
         return {
             ...state,
-            ...action.payload
+            comments: action.payload
         }
-        return state;
-    }
-   
+    } return state;
+}
 
-    const storeInstance =
-        createStore(
+    const storeInstance = createStore(
             combineReducers({
                 formReducer,
                 feedbackReducer
             }),
             applyMiddleware(logger)
-        )
+        );
 
 
     ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, document.getElementById('root'));
-    registerServiceWorker()
+    registerServiceWorker();
